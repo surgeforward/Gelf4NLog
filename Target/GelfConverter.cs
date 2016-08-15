@@ -16,7 +16,7 @@ namespace Gelf4NLog.Target
         {
             //Retrieve the formatted message from LogEventInfo
             var logEventMessage = logEventInfo.FormattedMessage;
-            if (logEventMessage == null) return null;
+            if (logEventMessage == null && logEventInfo.Exception == null) return null;
 
             //If we are dealing with an exception, pass exception properties to LogEventInfo properties
             if (logEventInfo.Exception != null)
